@@ -1,6 +1,5 @@
 import utils.utils as utils
 from experiments.main import run_experiment
-import utils.validation_plots as val_plots
 import utils.plotting as plotting
 from models.gmsm_instantiations import GMSM_continuous, GMSM_weighted
 from models.cmsm import CMSM
@@ -29,10 +28,6 @@ def exp_function(config_run, datasets, nuisance):
     scm = datasets["scm"]
     # Compute bounds
     gamma_dict = {"y": torch.tensor([1.2, 1.5, 2])}
-    # plotting
-    #plotting.plot_bounds_scm(gmsm, scm, gamma_dict, n_samples=20000, n_samples_oracle=80000, a_int=[0.4], bootstrap=False)
-    #plotting.plot_bounds_scm(gmsm_weighted, scm, gamma_dict, n_samples=20000, n_samples_oracle=80000, a_int=[0.4], bootstrap=False)
-    #plotting.plot_bounds_scm(cmsm, scm, gamma_dict, n_samples=500, n_samples_oracle=80000, a_int=[0.4], bootstrap=False)
     x_test = np.random.uniform(-1, 1, (500, 1))
     result_dict = {}
     a_int = [0.6]

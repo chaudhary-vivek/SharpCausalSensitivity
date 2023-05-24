@@ -1,6 +1,5 @@
 import utils.utils as utils
 from experiments.main import run_experiment
-import utils.validation_plots as val_plots
 import utils.plotting as plotting
 from models.gmsm_instantiations import GMSM_binary
 from models.ensembles import SensitivityEnsemble
@@ -22,18 +21,6 @@ def exp_function(config_run, datasets, nuisance):
     # Data generating SCM
     scm = datasets["scm"]
     gamma_dict = {"m1": torch.tensor([1, 2, 2, 2]), "y": torch.tensor([1, 1, 1.3, 1.7])}
-    #Plotting ground truth
-    if config_run["plotting"] and not bootstrapping:
-        # Propensity score fit
-        val_plots.plot_binary_dist_fit(gmsm, scm)
-
-        # Mediator density fit
-        val_plots.plot_binary_dist_fit(gmsm, scm, key="m1", a_cond=1)
-
-        # Outcome density fit (for single x)
-        val_plots.plot_density_fit(x_cond=-0.9, a_cond=0, m1_cond=0, gsm=gmsm, scm=scm, key="y", n_samples=10000,
-                                   grid_size=2000, bins=40)
-        val_plots.plot_bounds(gmsm, scm, gamma_dict, n_samples=10000, a_int=[1, 0],bootstrap=bootstrapping)
 
     # Create plots for paper (oracle gamma, propensity scores + bounds)
     plotting.plot_gamma_scm(scm, a_list=[1, 0], binary=True,

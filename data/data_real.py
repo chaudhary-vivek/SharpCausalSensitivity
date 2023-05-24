@@ -1,12 +1,8 @@
 import numpy as np
 import pandas as pd
 import utils.utils as utils
-from data.data_structures import GSM_Dataset
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
-import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler, FunctionTransformer, MinMaxScaler
+from sklearn.preprocessing import StandardScaler
 from data.data_structures import GSM_Dataset
 from sklearn.model_selection import train_test_split
 
@@ -14,10 +10,8 @@ def load_data_real(config):
     file_path = utils.get_project_path() + "/data/data_covid19/Merged_panel_data.csv"
     data_raw = pd.read_csv(file_path)
     data_filtered = data_raw[["canton_codes", "canton_pop", "date", "wd", "eth_ban_5", "total_trips_2020", "bag_falle"]].rename(columns={'eth_ban_5': 'a', 'total_trips_2020': 'm', 'bag_falle': 'y'})
-    #data_filtered['sunday'] = data_filtered['sunday'].fillna(0).astype(bool).astype(int)
     data_filtered = data_filtered.dropna(subset=['canton_pop'])
     data_filtered['a'] = data_filtered['a'].astype(int)
-    #data_filtered['cl_border'] = data_filtered['cl_border'].astype(int)
 
     #Check for mondays
     data_filtered['wd'] = (data_filtered['wd'] == 'Monday').astype(int)
@@ -59,9 +53,6 @@ def load_data_real(config):
         train_data = shuffled_data
         val_data = None
 
-    #data_filtered.hist(figsize=(10, 8))
-    #plt.tight_layout()
-    #plt.show()
     x_train = train_data.copy()
     x_train.drop(['a', "m", "y", "date"], axis=1, inplace=True)
     d_train = GSM_Dataset(x=x_train.values, a=train_data['a'].values.reshape(-1, 1),

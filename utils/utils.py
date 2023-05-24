@@ -56,11 +56,7 @@ def load_pytorch_model(path_relative, model):
 
 
 def get_logger(neptune=True):
-    if neptune:
-        logger = NeptuneLogger(project='dennisfrauen/sharp-sensitivity')
-    else:
-        logger = True
-    return logger
+    return True
 
 
 def get_config_names(model_configs):

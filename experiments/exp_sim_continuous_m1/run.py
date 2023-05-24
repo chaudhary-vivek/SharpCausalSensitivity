@@ -1,6 +1,5 @@
 import utils.utils as utils
 from experiments.main import run_experiment
-import utils.validation_plots as val_plots
 import utils.plotting as plotting
 from models.gmsm_instantiations import GMSM_continuous
 from models.ensembles import SensitivityEnsemble
@@ -23,15 +22,6 @@ def exp_function(config_run, datasets, nuisance):
     scm = datasets["scm"]
     # Compute bounds for indirect effect
     gamma_dict = {"m1": torch.tensor([1, 1.2, 1.2, 1.2]), "y": torch.tensor([1, 1, 1.2, 1.3])}
-    #Plotting ground truth
-    if config_run["plotting"] and not bootstrapping:
-        # Mediator density fit
-        val_plots.plot_binary_dist_fit(gmsm, scm, key="m1", a_cond=0.6)
-
-        # Outcome density fit (for single x)
-        val_plots.plot_density_fit(x_cond=-0.9, a_cond=0.6, m1_cond=0, gsm=gmsm, scm=scm, key="y", n_samples=10000,
-                                  grid_size=2000, bins=40, a_type="continuous")
-        val_plots.plot_bounds(gmsm, scm, gamma_dict, n_samples=10000, a_int=[0.6, 0.3], bootstrap=bootstrapping, a_type="continuous", plot_cond=True)
 
     # Create plots for paper (oracle gamma + bounds)
     plotting.plot_gamma_scm(scm, a_list=[0.9, 0.5], binary=False, path_rel="/experiments/exp_sim_continuous_m1/results/plot_gamma_continuous_m1_0.9_0.5.pdf")

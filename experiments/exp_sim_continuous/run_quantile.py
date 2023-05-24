@@ -1,6 +1,5 @@
 import utils.utils as utils
 from experiments.main import run_experiment
-import utils.validation_plots as val_plots
 import utils.plotting as plotting
 from models.gmsm_instantiations import GMSM_continuous
 from models.ensembles import SensitivityEnsemble

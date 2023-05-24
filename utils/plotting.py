@@ -1,9 +1,6 @@
 import matplotlib.pyplot as plt
-
 import utils.utils
-from data.data_structures import GSM_Dataset
 import numpy as np
-import torch
 import seaborn as sns
 import pandas as pd
 import utils.utils as utils
@@ -79,8 +76,6 @@ def plot_bounds_scm(gsm, scm, gamma_dict, a_int, x_test=None, n_samples=1000, n_
             label += legend_labels[key] + "=" + str(gamma_dict[key][i].detach().numpy()) + " "
         if i == 0:
             sns.lineplot(data=data_plot, x="x_test", y="gamma0", label=label, color="darkblue", linewidth=2)
-            #plt.fill_between(x_test[:, 0], bounds_plus[:, 0], bounds_minus[:, 0], alpha=0.5, label=label,
-            #                 color="darkred", linewidth=2)
         else:
             # Fill between two times: bounds_plus[:, i-1] and bounds_plus[:, i], and bounds_minus[:, i-1] and bounds_minus[:, i]
             # Use the same label and color for both
@@ -144,8 +139,6 @@ def plot_bounds_scm_quantile(gsm, scm, gamma_dict, a_int, x_test=None, n_samples
             label += legend_labels[key] + "=" + str(gamma_dict[key][i].detach().numpy()) + " "
         if i == 0:
             sns.lineplot(data=data_plot, x="x_test", y="gamma0", label=label, color="darkblue", linewidth=2)
-            #plt.fill_between(x_test[:, 0], bounds_plus[:, 0], bounds_minus[:, 0], alpha=0.5, label=label,
-            #                 color="darkred", linewidth=2)
         else:
             # Fill between two times: bounds_plus[:, i-1] and bounds_plus[:, i], and bounds_minus[:, i-1] and bounds_minus[:, i]
             # Use the same label and color for both
