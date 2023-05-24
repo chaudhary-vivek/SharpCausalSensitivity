@@ -1,5 +1,6 @@
 # SharpCausalSensitivity
-Code for our paper "Sharp bounds for generalized causal sensitivity analysis".
+
+This repository contains the code for our paper "Sharp bounds for generalized causal sensitivity analysis".
 
 #### Project structure 
 - *data* contains the data generation files/ real-world data preprocessing
