@@ -2,6 +2,9 @@
 
 This repository contains the code for our paper "Sharp bounds for generalized causal sensitivity analysis".
 
+![Plot Intuition](media/plot_intuition.png)
+
+
 #### Project structure 
 - *data* contains the data generation files/ real-world data preprocessing
 - *experiments* contains the code to run the experiments and the results
