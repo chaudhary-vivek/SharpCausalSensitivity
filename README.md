@@ -14,14 +14,14 @@ The project is build with python 3.10 and uses the packages listed in the file `
 
 #### Reproducing the experiments
 The scripts running the experiments are contained in the `/experiments` folder. Each experimental setting is contained within its own subfolder. These are:
-- *exp_real*: real-world data
-- *exp_sim_binary*: binary treatment, no mediators
-- *exp_sim_binary_m1*: binary treatment, one mediator
-- *exp_sim_binary_2*: binary treatment, two mediators
-- *exp_sim_continuous*: continuous treatment, no mediators
-- *exp_sim_continuous_m1*: continuous treatment, one mediator
-- *exp_sim_continuous_m2*: continuous treatment, two mediators
-- *exp_sim_continuous_weight*: continuous treatment, no mediators, weighed GMSM experiment (Table 1).
+- `/exp_real`: real-world data
+- `/exp_sim_binary`: binary treatment, no mediators
+- `/exp_sim_binary_m1`: binary treatment, one mediator
+- `/exp_sim_binary_2`: binary treatment, two mediators
+- `/exp_sim_continuous`: continuous treatment, no mediators
+- `/exp_sim_continuous_m1`: continuous treatment, one mediator
+- `/exp_sim_continuous_m2`: continuous treatment, two mediators
+- `/exp_sim_continuous_weight`: continuous treatment, no mediators, weighed GMSM experiment (Table 1).
 
 The files *run.py* and *run_quatile.py* execute the experiments. Configuration settings are in *config.yaml*. By default, the pretrained models in the `/saved_models` will be used to estimate bounds. For model training, the parameter *train_models* in *config.yaml* can be changed to *True*.
 
