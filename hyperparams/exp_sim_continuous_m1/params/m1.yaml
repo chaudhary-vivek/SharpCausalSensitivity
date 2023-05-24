@@ -1,0 +1,5 @@
+batch_size: 32
+d_hidden: 20
+dropout: 0.1
+epochs: 30
+lr: 0.001

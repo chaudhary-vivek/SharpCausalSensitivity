@@ -1,0 +1,22 @@
+data:
+  name: "sim_binary_m1"
+  n_train: 50000
+  n_val: 2000
+  d_x: 1
+  coef_u_m1: 1.5
+  coef_u_m2: 0
+  coef_u_y: 1.5
+  noise_m1: 1
+  noise_m2: 0.2
+  noise_y: 1
+run:
+  name: "exp_sim_binary_m1"
+  seed: 0
+  train_models: False
+  model_keys: ["propensity", "m1", "y"]
+  validation: False
+  plotting: True
+  scale_y: True
+  n_bootstrap: 5 # number of bootstrap samples, 0 means no bootstrap, i.e., single model trained on whole dataset
+  resample: False  # whether to resample the data for each bootstrap sample, if false use the original data
+  n_runs: 1 # number of runs with different random seeds

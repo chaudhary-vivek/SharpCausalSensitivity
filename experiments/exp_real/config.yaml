@@ -1,0 +1,16 @@
+data:
+  name: "real"
+  validation: False
+  train_val_ratio: 0.8
+
+run:
+  name: "exp_real"
+  seed: 0
+  train_models: False
+  model_keys: ["propensity", "m1", "y_regression"]
+  validation: False
+  plotting: True
+  scale_y: True
+  n_bootstrap: 10 # number of bootstrap samples, 0 means no bootstrap, i.e., single model trained on whole dataset
+  resample: False  # whether to resample the data for each bootstrap sample, if false use the original data
+  n_runs: 1 # number of runs with different random seeds
