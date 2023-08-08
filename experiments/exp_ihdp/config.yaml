@@ -1,0 +1,18 @@
+data:
+  name: "ihdp"
+  validation: False
+  beta_u:
+  hidden_confounding: True
+
+
+run:
+  name: "exp_ihdp"
+  seed: 0
+  train_models: False
+  model_keys: ["propensity", "y"]
+  validation: False
+  plotting: True
+  scale_y: True
+  n_bootstrap: 0 # number of bootstrap samples, 0 means no bootstrap, i.e., single model trained on whole dataset
+  resample: False  # whether to resample the data for each bootstrap sample, if false use the original data
+  n_runs: 400 # number of runs with different random seeds

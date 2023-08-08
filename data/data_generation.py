@@ -1,6 +1,7 @@
 from data.simulated_scms import SCM_continuous, SCM_binary, SCM_continuous_weight
 from data.data_structures import GSM_Dataset
 from data.data_real import load_data_real
+from data.data_ihdp import load_data_ihdp
 
 def get_datasets(config):
     if config["name"] == "sim_binary" or config["name"] == "sim_binary_m1" or config["name"] == "sim_binary_m2":
@@ -79,6 +80,9 @@ def get_datasets(config):
 
     elif config["name"] == "real":
         return load_data_real(config)
+
+    elif config["name"] == "ihdp":
+        return load_data_ihdp(config)
 
 
 

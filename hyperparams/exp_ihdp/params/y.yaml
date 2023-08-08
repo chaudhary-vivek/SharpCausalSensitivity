@@ -1,0 +1,5 @@
+batch_size: 128
+count_bins: 4
+d_hidden: 5
+epochs: 50
+lr: 0.005
